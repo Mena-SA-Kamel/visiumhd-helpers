@@ -7,5 +7,5 @@ R_ENV_PATH=$1
 
 # Run ENACT pipeline
 conda activate $R_ENV_PATH
-echo "run sargent"
-Rscript src/enact/Sargent.R
+echo "Running sargent with config: $CONFIG_PATH"
+Rscript r_scripts/sargent.R

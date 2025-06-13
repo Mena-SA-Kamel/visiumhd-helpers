@@ -14,11 +14,11 @@ library(readr)
 # configs_file <- "/home/oneai/visiumhd-helpers/sample_configs.yaml" # Replace with path to your configurations file
 
 # Read configs_file from environment variable
-configs_file <- Sys.getenv("CONFIGS_FILE")
+configs_file <- Sys.getenv("CONFIG_PATH")
 
 # Add a check to ensure the environment variable is set
 if (configs_file == "") {
-  stop("Environment variable CONFIGS_FILE is not set. Please set it before running this script.")
+  stop("Environment variable CONFIG_PATH is not set. Please set it before running this script.")
 }
 
 
