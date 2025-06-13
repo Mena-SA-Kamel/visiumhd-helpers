@@ -9,27 +9,12 @@ This repository provides essential R scripts for Visium HD data analysis:
 
 ## Running Sargent
 ### Prerequisites
-Complete these ENACT pipeline steps first:
+1. Complete these ENACT pipeline steps first:
    - Segmentation
    - bin_to_geodataframes
    - bin_to_cell_assignment
-
-Example ENACT code:
-```
-from enact.pipeline import ENACT
-
-so_hd = ENACT(
-    cache_dir="/home/oneai/test_cache",
-    wsi_path="Visium_HD_Human_Colon_Cancer_tissue_image.btf",
-    visiumhd_h5_path="binned_outputs/square_002um/filtered_feature_bc_matrix.h5",
-    tissue_positions_path="binned_outputs/square_002um/spatial/tissue_positions.parquet",
-    analysis_name="demo-colon",
-    segmentation=True,             # ENABLE THIS STEP
-    bin_to_geodataframes=True,     # ENABLE THIS STEP 
-    bin_to_cell_assignment=True,   # ENABLE THIS STEP
-    cell_type_annotation=False     # ** DISABLE THIS STEP **
-)
-```
+2. ENACT `configs.yaml` file. See [documentation](https://github.com/Sanofi-Public/enact-pipeline?tab=readme-ov-file#defining-enact-configurations) for reference.
+  
 
 ### Installation & Setup
 
@@ -49,26 +34,10 @@ so_hd = ENACT(
 
     ```make run_sargent```
 
-    This will process the ENACT results using the configuration specified in your config file.
+    This will run Sargent on the ENACT bin-to-cell assignment results using the configuration specified in your config file.
 
 4. ***Package Results using ENACT***
-Run ENACT's cell type annotation step to:
-- Package Sargent results in ENACT format
-- Generate visualization .tmap file
 
-Example ENACT code:
-```
-from enact.pipeline import ENACT
-
-so_hd = ENACT(
-    cache_dir="/home/oneai/test_cache",
-    wsi_path="Visium_HD_Human_Colon_Cancer_tissue_image.btf",
-    visiumhd_h5_path="binned_outputs/square_002um/filtered_feature_bc_matrix.h5",
-    tissue_positions_path="binned_outputs/square_002um/spatial/tissue_positions.parquet",
-    analysis_name="demo-colon",
-    segmentation=False,             # ** DISABLE THIS STEP **
-    bin_to_geodataframes=False,     # ** DISABLE THIS STEP **
-    bin_to_cell_assignment=False,   # ** DISABLE THIS STEP **
-    cell_type_annotation=True       # ENABLE THIS STEP
-)
-```
+   Run ENACT's cell type annotation step to:
+   - Package Sargent results in ENACT format
+   - Generate visualization .tmap file
