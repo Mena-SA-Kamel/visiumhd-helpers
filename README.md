@@ -1,2 +1,2 @@
 # visiumhd-helpers
-R helper functions for ENACT
+R helper functions for Visium HD analysis
