@@ -1,2 +1,2 @@
-# enact-r-addons
+# visiumhd-helpers
 R helper functions for ENACT
